@@ -52,37 +52,38 @@ public class DrawHandler extends Handler {
 
     }
 
-    public static final int START = 1;
+    //处理事件的类型
+    public static final int START = 1;//开始
 
-    public static final int UPDATE = 2;
+    public static final int UPDATE = 2;//更新
 
-    public static final int RESUME = 3;
+    public static final int RESUME = 3;//从暂停中恢复
 
-    public static final int SEEK_POS = 4;
+    public static final int SEEK_POS = 4;//跳到某一个位置
 
-    public static final int PREPARE = 5;
+    public static final int PREPARE = 5;//准备
 
-    private static final int QUIT = 6;
+    private static final int QUIT = 6;//推出
 
-    private static final int PAUSE = 7;
+    private static final int PAUSE = 7;//暂停
 
-    private static final int SHOW_DANMAKUS = 8;
+    private static final int SHOW_DANMAKUS = 8;//显示弹幕
 
-    private static final int HIDE_DANMAKUS = 9;
+    private static final int HIDE_DANMAKUS = 9;//隐藏弹幕
 
-    private static final int NOTIFY_DISP_SIZE_CHANGED = 10;
+    private static final int NOTIFY_DISP_SIZE_CHANGED = 10;//刷新显示大小
 
-    private static final int NOTIFY_RENDERING = 11;
+    private static final int NOTIFY_RENDERING = 11;//刷新绘制
 
-    private static final int UPDATE_WHEN_PAUSED = 12;
+    private static final int UPDATE_WHEN_PAUSED = 12;//更新暂停
 
-    private static final int CLEAR_DANMAKUS_ON_SCREEN = 13;
+    private static final int CLEAR_DANMAKUS_ON_SCREEN = 13;//屏幕清除
 
-    private static final long INDEFINITE_TIME = 10000000;
+    private static final long INDEFINITE_TIME = 10000000;//不定时更新
 
-    private long pausedPosition = 0;
+    private long pausedPosition = 0;//暂停位置
 
-    private boolean quitFlag = true;
+    private boolean quitFlag = true;//退出标志
 
     private long mTimeBase;
 

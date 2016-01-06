@@ -92,7 +92,7 @@ public class DanmakuView extends View implements IDanmakuView, IDanmakuViewContr
         mUiThreadId = Thread.currentThread().getId();
         setBackgroundColor(Color.TRANSPARENT);//透明背景
         setDrawingCacheBackgroundColor(Color.TRANSPARENT);//设置换存的View的背景颜色
-        DrawHelper.useDrawColorToClearCanvas(true, false);
+        DrawHelper.useDrawColorToClearCanvas(true, false);//使用绘制缓存
         mTouchHelper = DanmakuTouchHelper.instance(this);
     }
 
@@ -307,7 +307,7 @@ public class DanmakuView extends View implements IDanmakuView, IDanmakuViewContr
         } else {
             if (handler != null) {
                 RenderingState rs = handler.draw(canvas);
-                if (mShowFps) {
+                if (mShowFps) {//屏幕显示相关参数，上线是不用
                     if (mDrawTimes == null)
                         mDrawTimes = new LinkedList<Long>();
                     String fps = String.format(Locale.getDefault(),
