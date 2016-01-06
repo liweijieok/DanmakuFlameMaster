@@ -177,6 +177,11 @@ public class DanmakuUtils {
         return disp.isHardwareAccelerated() && (item.paintWidth > disp.getMaximumCacheWidth() || item.paintHeight > disp.getMaximumCacheHeight());
     }
 
+    /**
+     * 填充弹幕
+     * @param danmaku  需要填充的弹幕
+     * @param text 内容
+     */
     public static void fillText(BaseDanmaku danmaku, CharSequence text) {
         danmaku.text = text;
         if (TextUtils.isEmpty(text) || !text.toString().contains(BaseDanmaku.DANMAKU_BR_CHAR)) {

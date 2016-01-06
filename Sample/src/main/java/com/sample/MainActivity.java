@@ -171,7 +171,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
 
         ILoader loader = DanmakuLoaderFactory.create(DanmakuLoaderFactory
-                .TAG_BILI);
+                .TAG.TAG_BILI);
 
         try {
             loader.load(stream);

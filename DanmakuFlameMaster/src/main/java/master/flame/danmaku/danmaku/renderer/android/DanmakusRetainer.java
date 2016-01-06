@@ -98,9 +98,9 @@ public class DanmakusRetainer {
 
     public interface IDanmakusRetainer {
 
-        public void fix(BaseDanmaku drawItem, IDisplayer disp, Verifier verifier);
+         void fix(BaseDanmaku drawItem, IDisplayer disp, Verifier verifier);
 
-        public void clear();
+         void clear();
 
     }
 
