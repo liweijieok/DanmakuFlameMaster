@@ -19,18 +19,34 @@ package master.flame.danmaku.danmaku.model;
 public class DanmakuTimer {
     public long currMillisecond;
 
-    private long lastInterval;
+    private long lastInterval;//时间间隔
 
+    /**
+     * 更新 传入当前之间，获取上次更新和这次的时间间隔
+     * @param curr
+     * @return
+     */
     public long update(long curr) {
         lastInterval = curr - currMillisecond;
         currMillisecond = curr;
         return lastInterval;
     }
 
+    /** 一般适合初始化
+     * 添加一个最新时间，该时间是作为时间间隔
+     * 之后把原时间加上这哥mills最为当前时间
+     * @param mills
+     *
+     * @return
+     */
     public long add(long mills) {
         return update(currMillisecond + mills);
     }
 
+    /**
+     * 最后一次间隔
+     * @return
+     */
     public long lastInterval() {
         return lastInterval;
     }

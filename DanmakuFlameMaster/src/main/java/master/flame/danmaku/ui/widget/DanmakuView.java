@@ -78,15 +78,6 @@ public class DanmakuView extends View implements IDanmakuView, IDanmakuViewContr
         super(context);
         init();
     }
-
-    private void init() {
-        mUiThreadId = Thread.currentThread().getId();
-        setBackgroundColor(Color.TRANSPARENT);
-        setDrawingCacheBackgroundColor(Color.TRANSPARENT);
-        DrawHelper.useDrawColorToClearCanvas(true, false);
-        mTouchHelper = DanmakuTouchHelper.instance(this);
-    }
-
     public DanmakuView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
@@ -95,6 +86,14 @@ public class DanmakuView extends View implements IDanmakuView, IDanmakuViewContr
     public DanmakuView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
+    }
+
+    private void init() {
+        mUiThreadId = Thread.currentThread().getId();
+        setBackgroundColor(Color.TRANSPARENT);//透明背景
+        setDrawingCacheBackgroundColor(Color.TRANSPARENT);//设置换存的View的背景颜色
+        DrawHelper.useDrawColorToClearCanvas(true, false);
+        mTouchHelper = DanmakuTouchHelper.instance(this);
     }
 
     public void addDanmaku(BaseDanmaku item) {
