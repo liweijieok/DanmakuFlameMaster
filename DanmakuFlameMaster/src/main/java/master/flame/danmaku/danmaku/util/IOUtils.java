@@ -7,8 +7,14 @@ import java.io.OutputStream;
 
 /**
  * Created by MoiTempete.
+ * ＩＯ操作类
  */
 public class IOUtils {
+    /**
+     * 根据输入流获取对应的String，通用
+     * @param in
+     * @return
+     */
     public static String getString(InputStream in){
         byte[] data = getBytes(in);
         return data == null? null:new String(data);

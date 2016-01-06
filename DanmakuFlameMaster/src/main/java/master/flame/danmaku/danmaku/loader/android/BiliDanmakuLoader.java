@@ -32,7 +32,7 @@ public class BiliDanmakuLoader implements ILoader {
 
     }
 
-    public static BiliDanmakuLoader instance() {
+    static BiliDanmakuLoader instance() {
         if (_instance == null) {
             _instance = new BiliDanmakuLoader();
         }

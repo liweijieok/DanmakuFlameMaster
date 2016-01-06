@@ -16,7 +16,9 @@
 
 package master.flame.danmaku.danmaku.model;
 
-
+/**
+ * 左到右
+ */
 public class L2RDanmaku extends R2LDanmaku {
 
     public L2RDanmaku(Duration duration) {

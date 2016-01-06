@@ -170,7 +170,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             };
         }
 
-        ILoader loader = DanmakuLoaderFactory.create(DanmakuLoaderFactory.TAG_BILI);
+        ILoader loader = DanmakuLoaderFactory.create(DanmakuLoaderFactory
+                .TAG_BILI);
 
         try {
             loader.load(stream);
@@ -206,21 +207,24 @@ public class MainActivity extends Activity implements View.OnClickListener {
         mBtnSendDanmakus.setOnClickListener(this);
 
         // VideoView
-        VideoView mVideoView = (VideoView) findViewById(R.id.videoview);
+        final VideoView mVideoView = (VideoView) findViewById(R.id.videoview);
         // DanmakuView
 
         // 设置最大显示行数
         HashMap<Integer, Integer> maxLinesPair = new HashMap<Integer, Integer>();
-        maxLinesPair.put(BaseDanmaku.TYPE_SCROLL_RL, 5); // 滚动弹幕最大显示3行
-        // 设置是否禁止重叠
+        maxLinesPair.put(BaseDanmaku.TYPE_SCROLL_RL, 5); // 滚动弹幕最大显示5行
+              // 设置是否禁止重叠
         HashMap<Integer, Boolean> overlappingEnablePair = new HashMap<Integer, Boolean>();
         overlappingEnablePair.put(BaseDanmaku.TYPE_SCROLL_RL, true);
         overlappingEnablePair.put(BaseDanmaku.TYPE_FIX_TOP, true);
 
         mDanmakuView = (IDanmakuView) findViewById(R.id.sv_danmaku);
         mContext = DanmakuContext.create();
-        mContext.setDanmakuStyle(IDisplayer.DANMAKU_STYLE_STROKEN, 3).setDuplicateMergingEnabled(false).setScrollSpeedFactor(1.2f).setScaleTextSize(1.2f)
-        .setCacheStuffer(new SpannedCacheStuffer(), mCacheStufferAdapter) // 图文混排使用SpannedCacheStuffer
+        mContext.setDanmakuStyle(IDisplayer.DANMAKU_STYLE_STROKEN, 3)
+                .setDuplicateMergingEnabled(false)
+                .setScrollSpeedFactor(1.2f)
+                .setScaleTextSize(1.2f)
+                .setCacheStuffer(new SpannedCacheStuffer(), mCacheStufferAdapter) // 图文混排使用SpannedCacheStuffer
 //        .setCacheStuffer(new BackgroundCacheStuffer())  // 绘制背景使用BackgroundCacheStuffer
         .setMaximumLines(maxLinesPair)
         .preventOverlapping(overlappingEnablePair);
@@ -276,7 +280,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     mediaPlayer.start();
                 }
             });
-            mVideoView.setVideoPath(Environment.getExternalStorageDirectory() + "/1.flv");
+            mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    mVideoView.seekTo(0);
+                    mVideoView.start();
+                    mDanmakuView.seekTo(0L);
+                    mDanmakuView.start();
+                }
+            });
+            mVideoView.setVideoPath
+                    ("/storage/sdcard1/DCIM/Camera/VID_20151220_141059.mp4");
         }
 
     }
@@ -372,10 +386,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 SystemClock.sleep(20);
             }
         }
-    };
+    }
 
     private void addDanmaku(boolean islive) {
-        BaseDanmaku danmaku = mContext.mDanmakuFactory.createDanmaku(BaseDanmaku.TYPE_SCROLL_RL);
+        BaseDanmaku danmaku = mContext.mDanmakuFactory.createDanmaku(BaseDanmaku.TYPE_SCROLL_LR);
         if (danmaku == null || mDanmakuView == null) {
             return;
         }
@@ -389,12 +403,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
         danmaku.textSize = 25f * (mParser.getDisplayer().getDensity() - 0.6f);
         danmaku.textColor = Color.RED;
         danmaku.textShadowColor = Color.WHITE;
-        // danmaku.underlineColor = Color.GREEN;
-        danmaku.borderColor = Color.GREEN;
+         danmaku.underlineColor = Color.BLUE;
+        danmaku.borderColor =Color.GREEN;
         mDanmakuView.addDanmaku(danmaku);
 
     }
 
+    /**、图文混排
+     * @param islive
+     */
     private void addDanmaKuShowTextAndImage(boolean islive) {
         BaseDanmaku danmaku = mContext.mDanmakuFactory.createDanmaku(BaseDanmaku.TYPE_SCROLL_RL);
         Drawable drawable = getResources().getDrawable(R.drawable.ic_launcher);

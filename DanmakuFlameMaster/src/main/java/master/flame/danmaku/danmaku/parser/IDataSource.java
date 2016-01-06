@@ -16,6 +16,11 @@
 
 package master.flame.danmaku.danmaku.parser;
 
+/**
+ * 资源接口，包含资源来源：本地或者网络
+ * 获取资源和释放资源
+ * @param <T>
+ */
 public interface IDataSource<T> {
     String SCHEME_HTTP_TAG = "http";
     String SCHEME_HTTPS_TAG = "https";

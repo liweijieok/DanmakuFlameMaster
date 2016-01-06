@@ -313,7 +313,7 @@ public class DanmakuFilters {
 
     /**
      * 根据用户hash黑名单过滤
-     * 
+     *
      * @author ch
      */
     public static class UserHashFilter extends UserFilter<String> {

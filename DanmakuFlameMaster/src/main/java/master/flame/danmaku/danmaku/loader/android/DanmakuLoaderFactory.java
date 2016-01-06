@@ -18,15 +18,19 @@ package master.flame.danmaku.danmaku.loader.android;
 
 import master.flame.danmaku.danmaku.loader.ILoader;
 
+/**
+ * 创建Loader
+ * 建议通过这种方式创建
+ */
 public class DanmakuLoaderFactory {
 
-    public static String TAG_BILI = "bili";
-    public static String TAG_ACFUN = "acfun";
-    
-    public static ILoader create(String tag) {
-        if (TAG_BILI.equalsIgnoreCase(tag)) {
+    public enum TAG{
+        TAG_BILI,TAG_ACFUN;
+    }
+    public static ILoader create(TAG tag) {
+        if (TAG.TAG_BILI.equals(tag)) {
             return BiliDanmakuLoader.instance();
-        } else if(TAG_ACFUN.equalsIgnoreCase(tag))
+        } else if(TAG.TAG_ACFUN.equals(tag))
         	return AcFunDanmakuLoader.instance();
         return null;
     }

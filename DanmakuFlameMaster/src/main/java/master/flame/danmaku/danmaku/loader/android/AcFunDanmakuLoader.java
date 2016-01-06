@@ -16,7 +16,7 @@ public class AcFunDanmakuLoader implements ILoader{
 	private static volatile AcFunDanmakuLoader instance;
 	private JSONSource dataSource;
 	
-	public static ILoader instance() {
+	static ILoader instance() {
 		if(instance == null){
 			synchronized (AcFunDanmakuLoader.class){
 				if(instance == null)

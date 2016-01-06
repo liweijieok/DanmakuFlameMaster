@@ -16,8 +16,9 @@
 
 package master.flame.danmaku.danmaku.model;
 
-
-
+/**
+ * 右到左弹幕
+ */
 public class R2LDanmaku extends BaseDanmaku {
     
     protected static final long MAX_RENDERING_TIME = 100;

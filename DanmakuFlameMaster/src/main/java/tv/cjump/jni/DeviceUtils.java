@@ -33,9 +33,11 @@ public class DeviceUtils {
     // /system/lib/libc.so
     // XXX: need a runtime check
     public static synchronized ARCH getMyCpuArch() {
+        Log.i("Arch", "ARch");
         byte[] data = new byte[20];
         File libc = new File(Environment.getRootDirectory(), "lib/libc.so");
         if (libc.canRead()) {
+            Log.i("Arch", "ARch read");
             RandomAccessFile fp = null;
             try {
                 fp = new RandomAccessFile(libc, "r");

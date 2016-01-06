@@ -8,6 +8,10 @@ public abstract class AbsDisplayer<T, F> implements IDisplayer {
     
     public abstract void setExtraData(T data);
 
+    /**
+     * 是否硬件加速
+     * @return
+     */
     @Override
     public boolean isHardwareAccelerated() {
         return false;

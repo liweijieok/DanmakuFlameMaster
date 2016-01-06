@@ -25,6 +25,9 @@ import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * 构建Android文件的资源包括本地和网络
+ */
 public class AndroidFileSource implements IDataSource<InputStream> {
 
     private InputStream inStream;
@@ -33,6 +36,10 @@ public class AndroidFileSource implements IDataSource<InputStream> {
         fillStreamFromFile(new File(filepath));
     }
 
+    /**
+     * 文字或者是网页URI
+     * @param uri
+     */
     public AndroidFileSource(Uri uri) {
         fillStreamFromUri(uri);
     }
@@ -41,6 +48,10 @@ public class AndroidFileSource implements IDataSource<InputStream> {
         fillStreamFromFile(file);
     }
 
+    /**
+     * 输入流
+     * @param stream
+     */
     public AndroidFileSource(InputStream stream) {
         this.inStream = stream;
     }
@@ -53,6 +64,10 @@ public class AndroidFileSource implements IDataSource<InputStream> {
         }
     }
 
+    /**
+     * 文字或者是网页URI
+     * @param uri
+     */
     public void fillStreamFromUri(Uri uri) {
         String scheme = uri.getScheme();
         if (SCHEME_HTTP_TAG.equalsIgnoreCase(scheme) || SCHEME_HTTPS_TAG.equalsIgnoreCase(scheme)) {

@@ -42,13 +42,13 @@ public class DrawHandler extends Handler {
     private DanmakuContext mContext;
 
     public interface Callback {
-        public void prepared();
+         void prepared();
 
-        public void updateTimer(DanmakuTimer timer);
+         void updateTimer(DanmakuTimer timer);
 
-        public void danmakuShown(BaseDanmaku danmaku);
+         void danmakuShown(BaseDanmaku danmaku);
 
-        public void drawingFinished();
+         void drawingFinished();
 
     }
 

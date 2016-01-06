@@ -16,6 +16,9 @@
 
 package master.flame.danmaku.danmaku.model;
 
+/**
+ * 底部固定
+ */
 public class FBDanmaku extends FTDanmaku {
 
     public FBDanmaku(Duration duration) {

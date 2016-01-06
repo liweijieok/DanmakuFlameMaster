@@ -16,6 +16,9 @@
 
 package master.flame.danmaku.danmaku.model;
 
+/**
+ * 特殊弹幕，在某一个位置
+ */
 public class SpecialDanmaku extends BaseDanmaku {
     
     private class Point {
