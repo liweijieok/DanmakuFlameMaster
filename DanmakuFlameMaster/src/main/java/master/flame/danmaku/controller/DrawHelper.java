@@ -28,13 +28,15 @@ public class DrawHelper {
     public static Paint PAINT, PAINT_FPS;
 
     public static RectF RECT;
-    
+
+    //使用
     private static boolean USE_DRAWCOLOR_TO_CLEAR_CANVAS = true;
     
     private static boolean USE_DRAWCOLOR_MODE_CLEAR = true; 
     
     static {
         PAINT = new Paint();
+        //设置模式
         PAINT.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         PAINT.setColor(Color.TRANSPARENT);
         RECT = new RectF();
@@ -62,9 +64,11 @@ public class DrawHelper {
             if(USE_DRAWCOLOR_MODE_CLEAR) {
                 canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
             } else {
+
                 canvas.drawColor(Color.TRANSPARENT);
             }
         } else {
+            //把矩形滑到这个位置
             RECT.set(0, 0, canvas.getWidth(), canvas.getHeight());
             clearCanvas(canvas, RECT);
         }
