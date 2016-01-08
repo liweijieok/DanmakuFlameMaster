@@ -16,18 +16,24 @@
 
 package master.flame.danmaku.danmaku.model;
 
+import android.util.Log;
+
 public class DanmakuTimer {
     public long currMillisecond;
 
     private long lastInterval;//时间间隔
 
     /**
-     * 更新 传入当前之间，获取上次更新和这次的时间间隔
+     * 更新 传入当前时间，获取上次更新和这次的时间间隔
      * @param curr
      * @return
      */
     public long update(long curr) {
         lastInterval = curr - currMillisecond;
+        Log.i("Main", lastInterval + "lastInterval");
+        Log.i("Main", curr + "curr");
+        Log.i("Main", currMillisecond + "currMillisecond");
+
         currMillisecond = curr;
         return lastInterval;
     }

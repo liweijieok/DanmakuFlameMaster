@@ -96,6 +96,10 @@ public class DanmakuView extends View implements IDanmakuView, IDanmakuViewContr
         mTouchHelper = DanmakuTouchHelper.instance(this);
     }
 
+    /**
+     * 添加一个弹幕
+     * @param item
+     */
     public void addDanmaku(BaseDanmaku item) {
         if (handler != null) {
             handler.addDanmaku(item);
@@ -475,6 +479,7 @@ public class DanmakuView extends View implements IDanmakuView, IDanmakuViewContr
         if (!isViewReady()) {
             return;
         }
+        //弹幕不可见，当前线程是主线程
         if (!mDanmakuVisible || Thread.currentThread().getId() == mUiThreadId) {
             mClearFlag = true;
             postInvalidateCompat();

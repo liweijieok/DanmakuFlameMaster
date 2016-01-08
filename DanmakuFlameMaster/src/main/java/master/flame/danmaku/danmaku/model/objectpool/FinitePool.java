@@ -16,6 +16,10 @@
 
 package master.flame.danmaku.danmaku.model.objectpool;
 
+/**
+ * 有限的弹幕
+ * @param <T>
+ */
 class FinitePool<T extends Poolable<T>> implements Pool<T> {
     /** Factory used to create new pool objects */
     private final PoolableManager<T> mManager;

@@ -24,6 +24,14 @@ public class Pools {
         return new FinitePool<T>(manager);
     }
 
+    /**
+     * <T extends Poolable<T>>  这句话的作用是声明T类型
+     * Pool<T> 是需要返回发类型
+     * @param manager
+     * @param limit
+     * @param <T>
+     * @return
+     */
     public static <T extends Poolable<T>> Pool<T> finitePool(PoolableManager<T> manager, int limit) {
         return new FinitePool<T>(manager, limit);
     }

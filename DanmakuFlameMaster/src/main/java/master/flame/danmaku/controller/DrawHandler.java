@@ -553,10 +553,15 @@ public class DrawHandler extends Handler {
         obtainMessage(DrawHandler.SEEK_POS, ms).sendToTarget();
     }
 
+    /**
+     * 使用Handler添加弹幕
+     * @param item
+     */
     public void addDanmaku(BaseDanmaku item) {
         if (drawTask != null) {
             item.flags = mContext.mGlobalFlagValues;
             item.setTimer(timer);
+
             drawTask.addDanmaku(item);
             obtainMessage(NOTIFY_RENDERING).sendToTarget();
         }
@@ -627,6 +632,7 @@ public class DrawHandler extends Handler {
         if(drawTask != null) {
             drawTask.requestClear();
         }
+        //在子线程
         if (mUpdateInNewThread) {
             synchronized (this) {
                 mDrawTimes.clear();
