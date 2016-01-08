@@ -11,6 +11,8 @@ import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
+
+import master.flame.danmaku.danmaku.util.AndroidUtils;
 import master.flame.danmaku.danmaku.util.SystemClock;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -23,6 +25,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.PopupWindow;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import java.io.IOException;
@@ -155,6 +158,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        Toast.makeText(MainActivity.this,android.os.SystemClock
+//                .elapsedRealtime() + "",Toast.LENGTH_SHORT).show();
+//        Toast.makeText(MainActivity.this,android.os.SystemClock
+//                .uptimeMillis() + "",Toast.LENGTH_SHORT).show();
+//        Toast.makeText(MainActivity.this, AndroidUtils.getMemoryClass
+//                (MainActivity.this)+"",Toast.LENGTH_LONG).show();
         findViews();
     }
 
